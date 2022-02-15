@@ -10,7 +10,7 @@ class Usuario
 	private $rol;
 	private $imagen;
 	private $db;
-	private $direccion;
+	//private $direccion;
 
 	public function __construct()
 	{
@@ -100,7 +100,7 @@ class Usuario
 	public function save()
 	{
 
-		$sql = "INSERT INTO usuarios VALUES(NULL, '{$this->getNombre()}', '{$this->getApellidos()}', '{$this->getEmail()}', '{$this->getPassword()}', 'user', null, '{$this->getDireccion()}');";
+		$sql = "INSERT INTO usuarios VALUES(NULL, '{$this->getNombre()}', '{$this->getApellidos()}', '{$this->getEmail()}', '{$this->getPassword()}', 'user', null', '{$this->getDireccion()}');";
 		$save = $this->db->query($sql);
 
 		$result = false;

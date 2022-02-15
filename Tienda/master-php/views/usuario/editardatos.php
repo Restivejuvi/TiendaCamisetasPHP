@@ -7,7 +7,7 @@
 
 <?php elseif (isset($_SESSION['userMod']) && $_SESSION['userMod'] != 'complete') : ?>
 
-    <strong class="alert_red">A ocurrido un problema al modificar el usuario</strong>
+    <strong class="alert_red">A ocurrido un problema al modificar el usuario, revise los datos que ha introducido</strong>
 
 <?php endif; ?>
 

@@ -16,7 +16,7 @@
 
 <!--Metodo POST para guardar las nuevas cuentas registradas -->
 <form action="<?= base_url ?>usuario/save" method="POST">
-	<!-- -->
+	
 	<label for="nombre">Nombre</label>
 	<input type="text" name="nombre" required />
 

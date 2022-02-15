@@ -11,14 +11,14 @@
 
 	<?php $url_action = base_url . "usuario/saveAdmin"; ?>
 
-	<!--Notificaciones de registro del admin -->
+	<!--Notificaciones de registro -->
 	<?php if (isset($_SESSION['register']) && $_SESSION['register'] == 'complete') : ?>
 
-		<strong class="alert_green">Te has registrado correctamente.</strong>
+		<strong class="alert_green">Todo a ido correctamente.</strong>
 
 	<?php elseif (isset($_SESSION['register']) && $_SESSION['register'] == 'failed') : ?>
 
-		<strong class="alert_red">No has podido registrarte, por favor revisa los datos introducidos.</strong>
+		<strong class="alert_red">Algún dato incorrecto, por favor revisa los datos introducidos.</strong>
 
 	<?php endif; ?>
 	<!--Borramos sesion -->
@@ -34,12 +34,12 @@
 		<input type="text" name="nombre" value="<?= isset($user) && is_object($user) ? $user->nombre : ''; ?>" />
 
 		<label for="apellidos">Apellidos</label>
-		<textarea name="apellidos"><?= isset($user) && is_object($user) ? $user->apellidos : ''; ?></textarea>
+		<input type="text" name="apellidos" value="<?= isset($user) && is_object($user) ? $user->apellidos : ''; ?>" />
 
 		<label for="email">Email</label>
 		<input type="text" name="email" value="<?= isset($user) && is_object($user) ? $user->email : ''; ?>" />
 		<!--manejamos la contraseña -->
-		<?php if (!isset($edit) && !isset($user) && !is_object($user)) : ?>
+		<?php if (!isset($edit) && !isset($user)) : ?>
 			<label for="password">Password</label>
 			<input type="text" name="password" value="<?= isset($user) && is_object($user) ? $user->password : ''; ?>" />
 
