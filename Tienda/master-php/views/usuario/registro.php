@@ -7,7 +7,7 @@
 
 <?php elseif (isset($_SESSION['register']) && $_SESSION['register'] == 'failed') : ?>
 
-	<strong class="alert_red">Registro fallido, introduce bien los datos</strong>
+	<strong class="alert_red">Registro fallido, introduce bien los datos o intenta usar otro correo</strong>
 
 <?php endif; ?>
 

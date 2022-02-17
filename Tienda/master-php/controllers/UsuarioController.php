@@ -180,7 +180,7 @@ class usuarioController
 
 			require_once 'views/usuario/crear.php';
 		} else {
-			header('Location:' . base_url . 'usuario/gestion');
+			header('Location:' . base_url);
 		}
 	}
 
@@ -230,9 +230,9 @@ class usuarioController
 				}
 			}
 
-			if ($direccion && $direccion != $usuario->direccion) {
-				$arrMod['direccion'] = $direccion;
-			}
+			//if ($direccion && $direccion != $usuario->direccion) {
+				//$arrMod['direccion'] = $direccion;
+			//}
 
 			//Doble contraseña
 			if ($password && !empty($_POST['passwordN1']) && !empty($_POST['passwordN2'])) {
@@ -267,7 +267,8 @@ class usuarioController
 		} else {
 			$_SESSION['userMod'] = "failed";
 		}
-		header("Location:" . base_url . 'usuario/editarUsuario');
+		usuarioController::logout();
+		header("Location:" . base_url);
 	}
 
 	//Funcion para eliminar usuario

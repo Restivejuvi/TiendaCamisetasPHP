@@ -60,5 +60,6 @@
 		<input type="file" name="imagen" />
 
 		<input type="submit" value="Guardar" />
+
 	</form>
 </div>
