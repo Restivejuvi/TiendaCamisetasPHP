@@ -24,8 +24,6 @@
 
         Email: <input type="text" name="email" value="<?= $usu->email ?>" />
 
-        <!-- Direccion: <input type="text" name="direccion" value="<?= $usu->direccion ?>" /> -->
-
         Contraseña: <input type="password" name="password" />
 
         Nueva Contraseña: <input type="password" name="passwordN1" />

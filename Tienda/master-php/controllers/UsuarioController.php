@@ -207,7 +207,6 @@ class usuarioController
 			$nombre = empty($_POST['nombre']) ?  false : $_POST['nombre'];
 			$apellidos = empty($_POST['apellidos']) ? false : $_POST['apellidos'];
 			$email = empty($_POST['email']) ? false : $_POST['email'];
-			$direccion = empty($_POST['direccion']) ? false : $_POST['direccion'];
 			$password = empty($_POST['password']) ? false : $_POST['password'];
 
 			$conection = new Usuario();
@@ -229,10 +228,6 @@ class usuarioController
 					$arrMod["email"] = $email;
 				}
 			}
-
-			//if ($direccion && $direccion != $usuario->direccion) {
-				//$arrMod['direccion'] = $direccion;
-			//}
 
 			//Doble contraseña
 			if ($password && !empty($_POST['passwordN1']) && !empty($_POST['passwordN2'])) {

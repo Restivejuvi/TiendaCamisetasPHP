@@ -10,7 +10,6 @@ class Usuario
 	private $rol;
 	private $imagen;
 	private $db;
-	//private $direccion;
 
 	public function __construct()
 	{
@@ -36,11 +35,6 @@ class Usuario
 	{
 		return $this->email;
 	}
-
-	//function getDireccion()
-	//{
-	//	return $this->direccion;
-	//}
 
 	function getPassword()
 	{
@@ -77,11 +71,6 @@ class Usuario
 		$this->email = $this->db->real_escape_string($email);
 	}
 
-	//function setDireccion($direccion)
-	//{
-	//	$this->direccion = $direccion;
-	//}
-
 	function setPassword($password)
 	{
 		$this->password = $password;
@@ -102,7 +91,6 @@ class Usuario
 
 		$sql = "INSERT INTO usuarios VALUES(NULL, '{$this->getNombre()}', '{$this->getApellidos()}', '{$this->getEmail()}', '{$this->getPassword()}', 'user', null);";
 		$save = $this->db->query($sql);
-																																			//'{$this->getDireccion()}'
 		$result = false;
 		if ($save) {
 			$result = true;

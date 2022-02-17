@@ -38,7 +38,7 @@
 
 		<label for="email">Email</label>
 		<input type="text" name="email" value="<?= isset($user) && is_object($user) ? $user->email : ''; ?>" />
-		<!--manejamos la contraseña -->
+		<!--manejamos la contraseña en la vista-->
 		<?php if (!isset($edit) && !isset($user)) : ?>
 			<label for="password">Password</label>
 			<input type="text" name="password" value="<?= isset($user) && is_object($user) ? $user->password : ''; ?>" />
