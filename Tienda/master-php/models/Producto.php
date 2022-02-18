@@ -154,4 +154,28 @@ class Producto{
 		return $result;
 	}
 	
+	//Funciones gestión de productos
+
+	public function getTotalVentas(){
+		$sql = $this->db->query("SELECT SUM(unidades) FROM lineas_pedidos");
+		$total_Ventas = $sql->fetch_assoc();
+		return $total_Ventas['SUM(unidades)'];
+	}
+	
+
+	public function getMasVendido(){
+		$sql = "SELECT productos.nombre as nombre, (SELECT sum(unidades) FROM lineas_pedidos WHERE productos.id = lineas_pedidos.producto_id) AS 'cantidad_unidades' FROM productos ORDER by cantidad_unidades DESC LIMIT 1;";
+		$mas_Vendido = $this->db->query($sql);
+		return $mas_Vendido;
+	}
+	
+	public function getSinVentas(){
+		$sin_Ventas = $this->db->query("SELECT * FROM productos WHERE `id` NOT IN (SELECT `producto_id` from lineas_pedidos) ");
+		return $sin_Ventas;
+	}	
+
+	public function getSinStock(){
+		$sin_Stock = $this->db->query("SELECT * FROM productos WHERE stock=0");
+		return $sin_Stock;
+	}
 }

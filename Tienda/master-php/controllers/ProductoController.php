@@ -29,6 +29,12 @@ class productoController{
 		
 		$producto = new Producto();
 		$productos = $producto->getAll();
+
+		// Gestión de productos
+		$total_Ventas = $producto->getTotalVentas();
+		$mas_Vendido = $producto->getMasVendido();
+		$sin_Ventas = $producto->getSinVentas();
+		$sin_Stock = $producto->getSinStock();
 		
 		require_once 'views/producto/gestion.php';
 	}

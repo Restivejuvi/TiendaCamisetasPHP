@@ -39,3 +39,33 @@
 		</tr>
 	<?php endwhile; ?>
 </table>
+<!--Gestion de Productos-->
+<br><br>
+<h1>Información de los productos</h1>
+<table>
+		<tr>
+			<th>Total de ventas</th>
+			<td><?=$total_Ventas?></td>
+		</tr>
+		<tr>
+			<th>Producto mas vendido</th>
+			<td><?php while($prod = $mas_Vendido->fetch_object()): ?>
+				<p><?=$prod->nombre;?></p>
+				<?php endwhile; ?>
+			</td>
+		</tr>
+		<tr>
+			<th>Productos sin ventas</th>
+			<td><?php while($prod = $sin_Ventas->fetch_object()): ?>
+				<p><?=$prod->nombre;?></p>
+				<?php endwhile; ?>
+			</td>
+		</tr>
+		<tr>
+			<th>Productos sin existencias</th>
+			<td><?php while($prod = $sin_Stock->fetch_object()): ?>
+				<p><?=$prod->nombre;?></p>
+				<?php endwhile; ?>
+			</td>
+		</tr>
+	</table>
