@@ -52,15 +52,18 @@ class productoController{
 			$precio = isset($_POST['precio']) ? $_POST['precio'] : false;
 			$stock = isset($_POST['stock']) ? $_POST['stock'] : false;
 			$categoria = isset($_POST['categoria']) ? $_POST['categoria'] : false;
+			$oferta = isset($_POST['oferta']) ? $_POST['oferta'] : false;
 			// $imagen = isset($_POST['imagen']) ? $_POST['imagen'] : false;
 			
-			if($nombre && $descripcion && $precio && $stock && $categoria){
+			if($nombre && $descripcion && $precio && $stock && $oferta && $categoria){
 				$producto = new Producto();
 				$producto->setNombre($nombre);
 				$producto->setDescripcion($descripcion);
 				$producto->setPrecio($precio);
 				$producto->setStock($stock);
+				$producto->setOferta($oferta);
 				$producto->setCategoria_id($categoria);
+				
 				
 				// Guardar la imagen
 				if(isset($_FILES['imagen'])){

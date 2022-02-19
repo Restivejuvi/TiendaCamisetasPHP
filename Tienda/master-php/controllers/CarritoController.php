@@ -36,7 +36,7 @@ class carritoController{
 			$producto = $producto->getOne();
 
 			// Añadir al carrito
-			if(is_object($producto)){
+			if(is_object($producto) && $producto->stock > 0){
 				$_SESSION['carrito'][] = array(
 					"id_producto" => $producto->id,
 					"precio" => $producto->precio,
