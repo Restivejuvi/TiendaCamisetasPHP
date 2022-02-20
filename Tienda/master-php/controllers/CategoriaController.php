@@ -41,9 +41,62 @@ class categoriaController{
 			// Guardar la categoria en bd
 			$categoria = new Categoria();
 			$categoria->setNombre($_POST['nombre']);
+			$categoria->setId($_SESSION['idCategoria']);
+			unset($_SESSION['idCategoria']);
 			$save = $categoria->save();
+			if($save){
+				$_SESSION['categoria'] = "complete";
+			}else{
+				$_SESSION['categoria'] = "failed";
+			}
+		}else{
+			$_SESSION['categoria'] = "failed";
 		}
 		header("Location:".base_url."categoria/index");
 	}
-	
+	// Gestion de Categorias
+	public function editar(){
+		Utils::isAdmin();
+		if(isset($_GET['id'])){
+			$id = $_GET['id'];
+			$_SESSION['idCategoria'] = $id;
+			$edit = true;
+			
+			$categoria = new Categoria();
+			$categoria->setId($id);
+			
+			$cat = $categoria->getOne();
+			require_once 'views/categoria/crear.php';
+			
+		}else{
+			header('Location:'.base_url.'Categoria/index');
+		}
+	}
+
+	public function eliminar(){
+		Utils::isAdmin();
+		
+		if(isset($_GET['id'])){
+			$id = $_GET['id'];
+			$categoria = new Categoria();
+			$categoria->setId($id);
+
+			$stockCheck = $categoria->validarAlmacen();
+			if($stockCheck){
+				$delete = $categoria->borrarCategoria();
+			
+				if($delete){
+					$_SESSION['delete'] = 'complete';
+				}else{
+					$_SESSION['delete'] = 'failed';
+				}
+			}else{
+				$_SESSION['delete'] = 'failed';
+			}
+		}else{
+			$_SESSION['delete'] = 'failed';
+		}
+		header('Location:'.base_url.'Categoria/index');
+	}
+	// Fin 
 }
