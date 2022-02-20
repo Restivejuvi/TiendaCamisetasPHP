@@ -1,5 +1,11 @@
 <?php
+
+use Dompdf\Dompdf;
+use FontLib\Table\Type\name;
+
 require_once 'models/Pedido.php';
+require_once 'models/Usuario.php';
+require_once 'vendor/autoload.php';
 
 class pedidoController
 {
