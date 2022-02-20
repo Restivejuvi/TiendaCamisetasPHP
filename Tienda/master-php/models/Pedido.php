@@ -142,6 +142,12 @@ class Pedido
 		return $pedido;
 	}
 
+	//Funcion para borrar pedidos
+	public function delete()
+	{
+		$lineas = $this->db->query("DELETE FROM lineas_pedidos WHERE pedido_id = {$this->getId()}");
+		$producto = $this->db->query("DELETE FROM pedidos WHERE id = {$this->getId()}");
+	}
 
 	public function getProductosByPedido($id)
 	{
@@ -206,12 +212,5 @@ class Pedido
 			$result = true;
 		}
 		return $result;
-	}
-
-	//Funcion para borrar pedidos
-	public function delete()
-	{
-		$lineas = $this->db->query("DELETE FROM lineas_pedidos WHERE pedido_id = {$this->getId()}");
-		$producto = $this->db->query("DELETE FROM pedidos WHERE id = {$this->getId()}");
 	}
 }

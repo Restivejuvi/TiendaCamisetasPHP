@@ -24,3 +24,36 @@
 		<?php endif ?>
 	</div>
 <?php endwhile; ?>
+
+<nav>
+	<ul>
+		<table>
+			<table>
+				<tr>
+					<!-- Página anterior -->
+					<?php if ($pagina > 1) { ?>
+						<td>
+							<a href="<?= base_url ?>?pagina=<?php echo $pagina - 1 ?>">
+								<span aria-hidden="true">&laquo;</span>
+							</a>
+						</td>
+					<?php } ?>
+					<!--Mostramos todas las paginas-->
+					<?php for ($x = 1; $x <= $paginas; $x++) { ?>
+						<td class="<?php if ($x == $pagina) echo "active" ?>">
+							<a href="<?= base_url ?>?pagina=<?php echo $x ?>">
+								<?php echo $x ?></a>
+						</td>
+					<?php } ?>
+					<!-- Siguiente página -->
+					<?php if ($pagina < $paginas) { ?>
+						<td>
+							<a href="<?= base_url ?>?pagina=<?php echo $pagina + 1 ?>">
+								<span aria-hidden="true">&raquo;</span>
+							</a>
+						</td>
+					<?php } ?>
+				</tr>
+			</table>
+	</ul>
+</nav>
